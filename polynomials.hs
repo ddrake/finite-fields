@@ -2,11 +2,12 @@ import Data.List
 import qualified Data.Map as M
 
 -- RESULTS:
--- Constructing each of the p^(n+1) possible polynomials of degree n and evaluating each polynomial at each of the 
--- p possible domain values gives the surprising (to me) result that the graphs of the functions are distinct as long
+-- Constructing each of the p^(n+1) possible polynomials of degree n or lower
+-- and evaluating each polynomial at each of the p possible domain values gives 
+-- the surprising (to me) result that the graphs of the functions are distinct as long
 -- as n < p
 
--- example: In Z5, the 5^5 possible polynomials of degree 4 are all distinct functions 
+-- example: In Z5, the 5^5 possible polynomials of degree 4 or lower are all distinct functions 
 -- and hence span the entire space of 5^5 possible graphs
 
 --*Main> let ms = mranges coeff55 [0..4]
@@ -15,7 +16,8 @@ import qualified Data.Map as M
 
 
 -- It seems clear that this nice result comes from the fact that p is prime so Zp is a field
--- If we test all the 6^6 (46,656) polynomials of degree 5 in Z6, we find only 3*6^2 = 108 distinct graphs
+-- If we test all the 6^6 (46,656) polynomials of degree 5 or lowerin Z6, 
+-- we find only 3*6^2 = 108 distinct graphs.
 -- Each of these graphs is common to 2*6^3 = 432 distinct polynomials
 
 --*Main> :l polynomials.hs 
@@ -77,7 +79,7 @@ histo bins vals = let nb = nub bins
 --  DATA
 ------------
 
--- All polynomials of degree 2 over Z5
+-- All polynomials of degree 2 or lower over Z5
 coeff53 :: [[Int]]
 coeff53 = [[x,y,z] | x <- [0..4], y <- [0..4], z <- [0..4]]
 
